@@ -98,17 +98,3 @@ LinkedList.prototype.print = function () {
   }
   return str.join("-");
 }
-
-
-
-var ll = new LinkedList();
-ll.add(2);
-ll.add(6);
-ll.add(4);
-ll.add('x', 1);
-ll.add('x', 2);
-ll.deleteNode(0)
-
-
-
-console.log(ll.print());
