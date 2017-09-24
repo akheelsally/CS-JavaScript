@@ -99,4 +99,4 @@ LinkedList.prototype.print = function () {
   return str.join("-");
 }
 
-export default LinkedList;
+module.exports = LinkedList;
