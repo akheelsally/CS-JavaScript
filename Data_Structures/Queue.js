@@ -1,10 +1,15 @@
 const LinkedList = require('./Doubly_Linked_List');
 
-function Queue() {
+function Queue(capacity) {
     this._elements = new LinkedList();
     Object.defineProperty(this,'length',{
         get:function() {
             return this._elements._length;
+        }
+    });
+    Object.defineProperty(this,'_cap',{
+        get:function() {
+            return capacity;
         }
     });
 }
@@ -14,7 +19,12 @@ Queue.prototype.isEmpty  = function() {
 }
 
 Queue.prototype.push  = function(value) {
-    this._elements.add(value)
+    if(this.length < this._cap ) {
+        this._elements.add(value);
+        return this.length;
+    } 
+    return -1;
+    
 }
 
 Queue.prototype.pop  = function() {
@@ -33,13 +43,3 @@ Queue.prototype.peek  = function() {
     return this._elements._head;;
 }
 
-
-var q = new Queue();
-q.push(1)
-q.push(2)
-q.push(3)
-q.push(4)
-console.log(q.peek())
-console.log(q.pop());
-console.log(q.length)
-console.log(q.peek())
